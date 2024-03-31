@@ -1,1 +1,1 @@
-tealinux.db.tar.xz.sig
+tealinux.db.tar.gz.sig
