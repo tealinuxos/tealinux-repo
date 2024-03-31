@@ -1,1 +1,1 @@
-tealinux.files.tar.gz.sig
+tealinux.files.tar.zst.sig
