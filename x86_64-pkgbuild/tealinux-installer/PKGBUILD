@@ -1,0 +1,59 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# The following guidelines are specific to BZR, GIT, HG and SVN packages.
+# Other VCS sources are not natively supported by makepkg yet.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=tealinux-installer-git # '-bzr', '-git', '-hg' or '-svn'
+pkgver=r169.353a9ab
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url="https://github.com/tealinuxos/tealinux-installer"
+license=('GPL')
+groups=()
+depends=('lshw' 'dmidecode' 'rsync' 'fuse2' 'gcc-libs')
+makedepends=('git' 'rust' ) # 'bzr', 'git', 'mercurial' or 'subversion'
+# provides=("${pkgname%-VCS}")
+# conflicts=("${pkgname%-VCS}")
+replaces=()
+backup=()
+options=()
+install=
+source=('git+https://github.com/tealinuxos/tealinux-installer.git')
+noextract=()
+sha256sums=('SKIP')
+
+# Please refer to the 'USING VCS SOURCES' section of the PKGBUILD man page for
+# a description of each element in the source array.
+
+pkgver() {
+	cd "$srcdir/${pkgname%-git}"
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+# prepare() {
+# 	cd "$srcdir/${pkgname%-VCS}"
+# 	patch -p1 -i "$srcdir/${pkgname%-VCS}.patch"
+# }
+
+build() {
+	cd "$srcdir/${pkgname%-git}"
+	bun install
+	sudo -E bunx tauri build
+}
+
+# check() {
+# 	cd "$srcdir/${pkgname%-git}"
+# 	make -k check
+# }
+
+package() {
+	cd "$srcdir/${pkgname%-git}"
+	mkdir -p "$pkgdir/usr/bin/"
+	cp "src-tauri/target/release/tealinux-installer" "$pkgdir/usr/bin/"
+	chmod +x "$pkgdir/usr/bin/tealinux-installer"
+}
