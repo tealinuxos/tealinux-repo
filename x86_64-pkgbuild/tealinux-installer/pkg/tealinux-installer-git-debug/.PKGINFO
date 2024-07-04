@@ -3,12 +3,12 @@
 pkgname = tealinux-installer-git-debug
 pkgbase = tealinux-installer-git
 xdata = pkgtype=debug
-pkgver = r169.353a9ab-1
+pkgver = r189.5d3a460-1
 pkgdesc = Detached debugging symbols for tealinux-installer-git
 url = https://github.com/tealinuxos/tealinux-installer
-builddate = 1719943210
-packager = Unknown Packager
-size = 1330568
+builddate = 1720073575
+packager = Khoirul Anam <akunnyakhoirulanam@gmail.com>
+size = 1326392
 arch = x86_64
 license = GPL
 makedepend = git

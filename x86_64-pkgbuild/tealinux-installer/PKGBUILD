@@ -8,7 +8,7 @@
 
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=tealinux-installer-git # '-bzr', '-git', '-hg' or '-svn'
-pkgver=r169.353a9ab
+pkgver=r189.5d3a460
 pkgrel=1
 pkgdesc=""
 arch=('x86_64')
@@ -54,6 +54,9 @@ build() {
 package() {
 	cd "$srcdir/${pkgname%-git}"
 	mkdir -p "$pkgdir/usr/bin/"
-	cp "src-tauri/target/release/tealinux-installer" "$pkgdir/usr/bin/"
+	cp "src-tauri/target/release/tealinux-installer" "$pkgdir/usr/bin/tealinux-installer-target"
+	cp "$startdir/tealinux-installer-jamu" "$pkgdir/usr/bin/tealinux-installer"
 	chmod +x "$pkgdir/usr/bin/tealinux-installer"
+	chmod +x "$pkgdir/usr/bin/tealinux-installer-target"
+	cp -r "src-tauri/target/release/bundle/deb/tealinux-installer_0.1.0_amd64/data/usr/share" "$pkgdir/usr/"
 }
