@@ -1,11 +1,11 @@
 format = 2
 pkgname = tealinux-installer-git
 pkgbase = tealinux-installer-git
-pkgver = r189.5d3a460-1
+pkgver = r210.a99f86b-1
 pkgarch = x86_64
-pkgbuild_sha256sum = e1ad3fdb5eecd0bc8440931be35808311c8bcd3563d9cd4b55ae03274ea6e5d8
+pkgbuild_sha256sum = 765d6e3a82cbc33034c6ca468a9527258b3d9b6458555e3b8cd4c401429fe346
 packager = Khoirul Anam <akunnyakhoirulanam@gmail.com>
-builddate = 1720073575
+builddate = 1720099021
 builddir = /Project/tealinux/tealinux-repo-1/x86_64-pkgbuild/tealinux-installer
 startdir = /Project/tealinux/tealinux-repo-1/x86_64-pkgbuild/tealinux-installer
 buildtool = makepkg

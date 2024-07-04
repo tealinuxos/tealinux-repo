@@ -1,1 +1,1 @@
-sudo -E tealinux-installer
+pkexec tealinux-installer-target
