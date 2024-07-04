@@ -48,7 +48,7 @@ build() {
 
 # check() {
 # 	cd "$srcdir/${pkgname%-git}"
-# 	make -k check
+# 	make -k check	
 # }
 
 package() {
