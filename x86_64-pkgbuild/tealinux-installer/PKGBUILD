@@ -8,7 +8,7 @@
 
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=tealinux-installer-git # '-bzr', '-git', '-hg' or '-svn'
-pkgver=r217.09deafe
+pkgver=r276.2fb404d
 pkgrel=1
 pkgdesc=""
 arch=('x86_64')
@@ -54,13 +54,18 @@ build() {
 package() {
 	cd "$srcdir/${pkgname%-git}"
 	mkdir -p "$pkgdir/usr/bin/"
+	mkdir -p "$pkgdir/usr/share/icons"
 	mkdir -p "$pkgdir/usr/share/polkit-1/actions/"
 
 	cp "src-tauri/target/release/tealinux-installer" "$pkgdir/usr/bin/tealinux-installer-target"
 	cp "$startdir/tealinux-installer-jamu" "$pkgdir/usr/bin/tealinux-installer"
+
 	chmod +x "$pkgdir/usr/bin/tealinux-installer"
 	chmod +x "$pkgdir/usr/bin/tealinux-installer-target"
-	cp -r "src-tauri/target/release/bundle/deb/tealinux-installer_0.1.0_amd64/data/usr/share" "$pkgdir/usr/"
+
+	cp -r "src-tauri/target/release/bundle/deb/tealinux-installer_0.1.0_amd64/data/usr/share/applications" "$pkgdir/usr/share/"
+
+	cp "$startdir/tealinux.png" "$pkgdir/usr/share/icons/tealinux-installer.png"
 
 	cp "$startdir/jamu-polkit" "$pkgdir/usr/share/polkit-1/actions/org.freedesktop.policykit.tealinux-installer.policy"
 }

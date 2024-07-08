@@ -1,1 +1,6 @@
+#!/bin/bash
+
+# Execute the command with pkexec
 pkexec tealinux-installer-target
+
+# Done
